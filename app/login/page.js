@@ -1,5 +1,5 @@
 "use client";
-import LogIn from "../components/features/auth/SignUp";
+import LogIn from "../components/features/auth/LogIn";
 import { useRouter } from "next/navigation";
 
 export default function Page() {
