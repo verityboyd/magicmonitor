@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signOut as firebaseSignOut,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 import { auth, db } from "@/app/utils/firebase";
 import { doc, setDoc } from "firebase/firestore";
@@ -27,12 +28,14 @@ export function AuthContextProvider({ children }) {
 
   async function signUp(email, password, firstName, lastName) {
     try {
-      //create a user
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password,
       );
+      await updateProfile(userCredential.user, {
+        displayName: firstName,
+      });
       const userid = userCredential.user.uid;
       await setDoc(doc(db, "users", userid), {
         userId: userid,
@@ -40,10 +43,9 @@ export function AuthContextProvider({ children }) {
         lastName,
         email,
       });
-      //return the user
       return { user: userCredential.user, error: null };
     } catch (error) {
-      //if error, return error
+      console.log("ERROR:", error.code, error.message);
       return { user: null, error: error.message };
     }
   }

@@ -1,0 +1,27 @@
+"use client";
+import SignUp from "../components/features/auth/SignUp";
+import { useRouter } from "next/navigation";
+
+export default function Page() {
+  const router = useRouter();
+  return (
+    <main className="flex flex-row w-full min-h-screen justify-center items-center">
+      <div className="flex items-center">
+        <div>
+          <SignUp />
+          <div className="flex flex-col items-center py-5">
+            <div className="flex flex-row">
+              Already have an account?
+              <button
+                onClick={() => router.push("/login")}
+                className="font-bold hover:underline pl-1"
+              >
+                Log In
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}

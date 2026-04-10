@@ -1,7 +1,6 @@
 //site header to be wrapped in root layout
 //display user.name in the right hand side next to log out utton
 "use client";
-import Link from "next/link";
 import { useUserAuth } from "@/app/contexts/AuthContext";
 
 export default function SiteHeader() {
@@ -12,7 +11,7 @@ export default function SiteHeader() {
       <div className="flex flex-row items-center gap-4 px-10">
         <div>Home</div>
         <div>Parks</div>
-        {user ? <div>Hello, {user.name}</div> : <div>Log In </div>}
+        {user ? <div>Hello, {user.displayName}</div> : <div>Log In </div>}
       </div>
     </nav>
   );
