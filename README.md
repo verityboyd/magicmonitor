@@ -23,3 +23,4 @@ TODO
 - sort out light/dark theme (shadcn toggle/next theme)
 - ensure responsiveness & accessibility
 - ensure certain pages are protected (can you do anything without logging in? or just not show fave icons without being logged in?)
+- make license
