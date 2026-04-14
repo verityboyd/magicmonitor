@@ -2,7 +2,7 @@
 import {
   collection,
   getDocs,
-  addDoc,
+  setDoc,
   deleteDoc,
   doc,
 } from "firebase/firestore";
@@ -24,19 +24,20 @@ export const favouritesService = {
     }
   },
 
-  async addFavourite(userId, rideId) {
+  async addFavourite(userId, ride) {
     try {
-      const newDoc = await addDoc(
-        collection(db, "users", userId, "favourites"),
-        ride.id.toString(),
+      await setDoc(
+        doc(db, "users", userId, "favourites", ride.id.toString()),
+        ride,
       );
-      return newDoc.id;
+
+      return ride.id;
     } catch (error) {
       console.error("Error adding favourite", error);
     }
   },
 
-  async removeFavorite(userId, rideId) {
+  async removeFavourite(userId, rideId) {
     try {
       await deleteDoc(
         doc(db, "users", userId, "favourites", rideId.toString()),

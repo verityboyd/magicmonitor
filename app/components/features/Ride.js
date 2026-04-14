@@ -1,13 +1,13 @@
 //? !isOpen return "Ride Closed" : {ride.wait}
 //li items?
 
-import StarIcon from "./StarIcon";
+import FavouriteButton from "./FavouriteButton";
 
 export default function Ride({ ride }) {
   return (
     <div className="flex flex-row justify-between">
       <div className="flex flex-row items-center gap-2">
-        <StarIcon />
+        <FavouriteButton ride={ride} />
         <div className="text-lg">{ride.name}</div>
       </div>
 

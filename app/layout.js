@@ -3,6 +3,9 @@ import "./globals.css";
 import { AuthContextProvider } from "./contexts/AuthContext";
 import SiteHeader from "./components/features/SiteHeader";
 import SiteFooter from "./components/features/SiteFooter";
+import { FavouritesProvider } from "./contexts/FavouritesContext";
+import { NotifyProvider } from "./contexts/NotifyContext";
+import Notification from "./components/features/Notification";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +29,13 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthContextProvider>
-          <SiteHeader />
-          {children}
+          <FavouritesProvider>
+            <NotifyProvider>
+              <Notification />
+              <SiteHeader />
+              {children}
+            </NotifyProvider>
+          </FavouritesProvider>
         </AuthContextProvider>
         <SiteFooter />
       </body>

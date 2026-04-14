@@ -1,28 +1,14 @@
 import { Icon } from "@iconify/react";
+import { useFavourites } from "@/app/contexts/FavouritesContext";
 import { useState } from "react";
-export default function StarIcon() {
-  const [isStarred, setIsStarred] = useState(false);
 
-  function toggleStar() {
-    setIsStarred((prev) => !prev);
-  }
+export default function StarIcon({ active }) {
   return (
-    <button onClick={toggleStar}>
-      {isStarred ? (
-        <Icon
-          icon="ion:star"
-          width="26"
-          height="26"
-          className="text-[#ffa534] cursor-pointer hover:scale-110"
-        />
-      ) : (
-        <Icon
-          icon="ion:star-outline"
-          width="26"
-          height="30"
-          className="text-[#ffa534] cursor-pointer hover:scale-110"
-        />
-      )}
-    </button>
+    <Icon
+      icon={active ? "ion:star" : "ion:star-outline"}
+      width="26"
+      height="26"
+      className="text-[#ffa534] cursor-pointer hover:scale-110 transition"
+    />
   );
 }
