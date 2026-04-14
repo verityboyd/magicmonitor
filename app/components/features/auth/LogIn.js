@@ -77,7 +77,9 @@ export default function LogIn() {
             </button>
           </div>
         </form>
-        {error && <div className="text-red-500 italic pt-10">{error}</div>}
+        {error && (
+          <div className="text-red-500 italic pt-10 text-center">{error}</div>
+        )}
       </div>
     </section>
   );
