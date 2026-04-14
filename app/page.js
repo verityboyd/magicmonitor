@@ -4,6 +4,8 @@
 //consider Breaking out signed in/out into components to render conditionally
 "use client";
 import { useFetchParkData } from "./utils/queueTimes";
+import Park from "./components/features/Park";
+import Loading from "./components/features/Loading";
 
 export default function Page() {
   /*const { parks, loading } = useFetchDisneyParks();
@@ -29,27 +31,16 @@ const Park = ({ id }) => {
 
   return <div>json.stringify(rides)</div>;
 };*/
-  const parkId = 274; // 👈 hardcode for testing
+  const parkId = 6;
+  const { lands, parkName, loading } = useFetchParkData(parkId);
 
-  const { lands, loading } = useFetchParkData(parkId);
-
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
 
   return (
-    <div>
-      <h1>Test Park</h1>
-
-      {lands.map((land) => (
-        <div key={land.id}>
-          <h2>{land.name}</h2>
-
-          {land.rides.map((ride) => (
-            <div key={ride.id}>
-              {ride.name} — {ride.wait} min
-            </div>
-          ))}
-        </div>
-      ))}
+    <div className="flex flex-col justify-center items-center">
+      <div>
+        <Park parkName={parkName} lands={lands} />
+      </div>
     </div>
   );
 }

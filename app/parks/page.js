@@ -6,73 +6,73 @@ export default function Page() {
     <div className="flex justify-center w-full">
       <div className="grid grid-cols-4 gap-8 mx-auto p-8">
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={6}
           imgUrl={"/assets/wdw.jpg"}
           altText={"Magic Kingdom"}
           parkName={"Magic Kingdom"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={8}
           imgUrl={"/assets/dak.jpg"}
           altText={"Animal Kingdom"}
           parkName={"Animal Kingdom"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={5}
           imgUrl={"/assets/epcot.jpg"}
           altText={"Epcot"}
           parkName={"Epcot"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={7}
           imgUrl={"/assets/hollywoodstudios.jpg"}
           altText={"Hollywood Studios"}
           parkName={"Hollywood Studios"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={274}
           imgUrl={"/assets/tokyodl.jpg"}
           altText={"Tokyo Disneyland"}
           parkName={"Tokyo Disneyland"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={275}
           imgUrl={"/assets/tokyods.jpg"}
           altText={"Tokyo DisneySea"}
           parkName={"Tokyo DisneySea"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={30}
           imgUrl={"/assets/shanghai.jpg"}
           altText={"Shanghai Disney Resort"}
           parkName={"Shanghai Disney Resort"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={31}
           imgUrl={"/assets/hongkongdl.jpg"}
           altText={"Hong Kong Disneyland"}
           parkName={"Hong Kong Disneyland"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={16}
           imgUrl={"/assets/dl.jpg"}
           altText={"Disneyland"}
           parkName={"Disneyland"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={17}
           imgUrl={"/assets/dca.jpg"}
           altText={"Disney California Adventure"}
           parkName={"Disney California Adventure"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={4}
           imgUrl={"/assets/dlp.jpg"}
           altText={"Disneyland Paris"}
           parkName={"Disneyland Paris"}
         />
         <ParkImageCard
-          parkUrl={"#"}
+          parkId={28}
           imgUrl={"/assets/daw.jpg"}
           altText={"Disney Adventure World"}
           parkName={"Disney Adventure World"}

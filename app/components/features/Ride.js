@@ -1,9 +1,23 @@
 //? !isOpen return "Ride Closed" : {ride.wait}
+//li items?
+
+import StarIcon from "./StarIcon";
 
 export default function Ride({ ride }) {
   return (
-    <div>
-      {ride.name} — {ride.wait} min
+    <div className="flex flex-row justify-between">
+      <div className="flex flex-row items-center gap-2">
+        <StarIcon />
+        <div className="text-lg">{ride.name}</div>
+      </div>
+
+      <div>
+        {ride.isOpen ? (
+          <div className="text-lg">{ride.wait} min</div>
+        ) : (
+          <div className="text-gray-400 text-lg">Ride Closed</div>
+        )}
+      </div>
     </div>
   );
 }

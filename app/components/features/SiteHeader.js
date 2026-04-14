@@ -9,6 +9,9 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { SparklesText } from "../ui/sparkles-text";
+import { AnimatedGradientText } from "../ui/animated-gradient-text";
 
 export default function SiteHeader() {
   const { user, logout } = useUserAuth();
@@ -20,10 +23,20 @@ export default function SiteHeader() {
   }
   return (
     <nav className="flex flex-row items-center justify-between py-5 text-lg border-b-2 border-[#C7B9FF] shadow-md">
-      <div className="flex flex-row items-center px-10">Magic Monitor</div>
+      <div className="flex flex-row items-center px-10">
+        <Link href="/">
+          <AnimatedGradientText className="font-bold text-2xl">
+            Magic Monitor
+          </AnimatedGradientText>
+        </Link>
+      </div>
       <div className="flex flex-row items-center gap-4 px-10">
-        <div>Home</div>
-        <div>Parks</div>
+        <div>
+          <Link href="/">Home</Link>
+        </div>
+        <div>
+          <Link href="/parks">Parks</Link>
+        </div>
         {user ? (
           <DropdownMenu>
             <DropdownMenuTrigger
