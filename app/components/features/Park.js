@@ -1,14 +1,10 @@
 import Ride from "./Ride";
-
-//maybe need to add conditionals here for if it's an asian park = no lands, only rides
-
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
-import StarIcon from "./StarIcon";
 
 export default function Park({ lands }) {
   return (

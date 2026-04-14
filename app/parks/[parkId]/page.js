@@ -6,9 +6,12 @@ import { useParams } from "next/navigation";
 import { useFetchParkData, useFetchDisneyParks } from "@/app/utils/queueTimes";
 import Park from "@/app/components/features/Park";
 import Loading from "@/app/components/features/Loading";
+import { useUserAuth } from "@/app/contexts/AuthContext";
+import UnAuth from "@/app/components/features/UnAuth";
 
 export default function Page() {
   const { parkId } = useParams();
+  const { user } = useUserAuth();
   const id = Number(parkId);
 
   const { parks } = useFetchDisneyParks();
@@ -18,6 +21,12 @@ export default function Page() {
   const parkName = parks?.parks?.find((park) => park.id === id)?.name;
 
   if (loading) return <Loading />;
+  if (!user)
+    return (
+      <UnAuth
+        message={"Please log in to view rides and add them to your favourites."}
+      />
+    );
 
   return (
     <div className="w-full flex justify-center">

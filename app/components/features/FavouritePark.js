@@ -22,7 +22,7 @@ export default function FavouritePark({ park }) {
 
   return (
     <div>
-      <h2>{park.name}</h2>
+      <h2 className="text-2xl text-center font-bold">{park.name}</h2>
       <Park lands={filteredLands} />
     </div>
   );
