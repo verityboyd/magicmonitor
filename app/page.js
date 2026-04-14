@@ -39,7 +39,8 @@ const Park = ({ id }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div>
-        <Park parkName={parkName} lands={lands} />
+        Home Page welcome to the home page brief intro/instructions about how to
+        use the site/favourite things and then display current favourites.
       </div>
     </div>
   );

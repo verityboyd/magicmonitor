@@ -1,5 +1,3 @@
-//user auth you know wazzup wrap it in root layout too
-//don't forget to wrap in root layout
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import {
