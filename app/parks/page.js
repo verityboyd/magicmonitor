@@ -1,6 +1,5 @@
 import ParkImageCard from "../components/features/ParkImageCard";
 
-//TODO fix sizes to be uniform
 export default function Page() {
   return (
     <div className="flex justify-center w-full">

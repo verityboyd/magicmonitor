@@ -23,9 +23,13 @@ export default function Page() {
   if (loading) return <Loading />;
   if (!user)
     return (
-      <UnAuth
-        message={"Please log in to view rides and add them to your favourites."}
-      />
+      <div className="flex flex-col justify-center items-center min-h-screen">
+        <UnAuth
+          message={
+            "Please log in to view rides and add them to your favourites."
+          }
+        />
+      </div>
     );
 
   return (

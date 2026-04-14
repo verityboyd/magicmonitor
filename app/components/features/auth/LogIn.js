@@ -65,13 +65,10 @@ export default function LogIn() {
               <div className="text-red-500 py-1">{formik.errors.password}</div>
             ) : null}
           </div>
-          <div className="flex flex-row justify-end pt-1 font-bold cursor-pointer hover:underline">
-            Forgot Password?
-          </div>
           <div className="flex flex-row justify-center pt-10">
             <button
               type="submit"
-              className="border-2 rounded-lg px-2 py-1 bg-[#A7D8FF] text-black cursor-pointer hover:scale-110"
+              className="border-2 rounded-lg px-2 py-1 bg-[#C7B9FF] text-black cursor-pointer hover:scale-110"
             >
               Log In
             </button>

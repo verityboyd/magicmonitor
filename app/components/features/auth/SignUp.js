@@ -130,7 +130,7 @@ export default function SignUp() {
           <div className="flex flex-row justify-center pt-10">
             <button
               type="submit"
-              className="border-2 rounded-lg px-2 py-1 bg-[#A7D8FF] text-black cursor-pointer hover:scale-110"
+              className="border-2 rounded-lg px-2 py-1 bg-[#C7B9FF] text-black cursor-pointer hover:scale-110"
             >
               Sign Up
             </button>

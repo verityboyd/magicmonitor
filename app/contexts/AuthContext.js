@@ -6,6 +6,7 @@ import {
   signOut as firebaseSignOut,
   onAuthStateChanged,
   updateProfile,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth, db } from "@/app/utils/firebase";
 import { doc, setDoc } from "firebase/firestore";
