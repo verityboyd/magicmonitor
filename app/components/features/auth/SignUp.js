@@ -44,7 +44,6 @@ export default function SignUp() {
         setError(error);
         return;
       }
-      console.log("user created:", newUser);
       router.push("/");
     },
   });

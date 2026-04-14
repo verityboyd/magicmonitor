@@ -3,45 +3,36 @@
 //if user -> display faves/"go to parks(clickaBle) to start adding favourites"
 //consider Breaking out signed in/out into components to render conditionally
 "use client";
-import { useFetchParkData } from "./utils/queueTimes";
-import Park from "./components/features/Park";
+import { useFetchDisneyParks } from "./utils/queueTimes";
+import { useFavourites } from "./contexts/FavouritesContext";
+import FavouritePark from "./components/features/FavouritePark";
 import Loading from "./components/features/Loading";
+import { useUserAuth } from "./contexts/AuthContext";
 
 export default function Page() {
-  /*const { parks, loading } = useFetchDisneyParks();
-
-  if (loading) {
-    <div> loading </div>;
-  }
-
-  console.log(parks);
-  return (
-    <main>
-      <div>{JSON.stringify(parks)}</div>
-    </main>
-  );
-}
-
-const Park = ({ id }) => {
-  const rides = useFetchRides(id);
-
-  if (!rides) {
-    return <div>im loading</div>;
-  }
-
-  return <div>json.stringify(rides)</div>;
-};*/
-  const parkId = 6;
-  const { lands, parkName, loading } = useFetchParkData(parkId);
+  const { parks, loading } = useFetchDisneyParks();
+  const { favourites } = useFavourites();
+  const { user } = useUserAuth();
 
   if (loading) return <Loading />;
+  if (!user) return <div>Please log in to view your favourites.</div>;
+  if (!favourites.length) {
+    return (
+      <div>
+        Click the star icon next to a ride(link to parks here) to add it to your
+        favourites.
+      </div>
+    );
+  }
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <main>
+      <h1>Your Favourites</h1>
       <div>
-        Home Page welcome to the home page brief intro/instructions about how to
-        use the site/favourite things and then display current favourites.
+        {parks?.parks?.map((park) => (
+          <FavouritePark key={park.id} park={park} />
+        ))}
       </div>
-    </div>
+    </main>
   );
 }

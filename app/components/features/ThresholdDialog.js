@@ -17,7 +17,7 @@ import { useFavourites } from "@/app/contexts/FavouritesContext";
 export default function ThresholdDialog({ ride }) {
   const { toggleFavourite, isFavourite } = useFavourites();
 
-  const [threshold, setThreshold] = useState(15);
+  const [threshold, setThreshold] = useState(5);
 
   const fave = isFavourite(ride.id);
 

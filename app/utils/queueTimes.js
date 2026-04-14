@@ -69,6 +69,5 @@ export const useFetch = (url) => {
     callFetch();
     setCalled(true);
   }
-  console.log(result);
   return { loading, result };
 };

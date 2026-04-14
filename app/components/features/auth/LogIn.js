@@ -29,7 +29,6 @@ export default function LogIn() {
         setError(error);
         return;
       }
-      console.log("user logged in:", user);
       router.push("/");
     },
   });
