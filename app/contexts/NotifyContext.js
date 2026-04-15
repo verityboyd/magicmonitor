@@ -1,5 +1,3 @@
-//watch and deliver notifications once below threshold (threshold logic here i suppose?)
-//put notification in here
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
@@ -23,17 +21,26 @@ export function NotifyProvider({ children }) {
         const res = await fetch(`/api/queue/${parkId}`);
         const data = await res.json();
 
-        const rides = data.lands?.flatMap((l) => l.rides) || [];
+        let rides = [];
+        if (data.lands && data.lands.length > 0) {
+          rides = data.lands.flatMap((land) => land.rides);
+        } else if (data.rides && data.rides.length > 0) {
+          rides = data.rides;
+        }
 
         rides.forEach((ride) => {
-          const fav = favourites.find((f) => f.id === ride.id);
+          const fave = favourites.find((fav) => fav.id === ride.id);
 
-          if (!fav) return;
+          if (!fave) return;
 
           const wait = ride.wait_time;
+          const open = ride.is_open;
 
           const sendNotif =
-            fav.threshold && wait <= fav.threshold && !notified[ride.id];
+            fave.threshold &&
+            wait <= fave.threshold &&
+            open &&
+            !notified[ride.id];
 
           if (sendNotif) {
             console.log(`${ride.name} is now ${wait} min!`);
