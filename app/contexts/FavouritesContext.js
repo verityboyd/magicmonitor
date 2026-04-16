@@ -1,6 +1,3 @@
-//tracks user's favourites (global)
-//favourite state
-//add remove faves using _services exports
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import { favouritesService } from "../_services/FavouritesServices";

@@ -43,9 +43,7 @@ export function NotifyProvider({ children }) {
             !notified[ride.id];
 
           if (sendNotif) {
-            console.log(`${ride.name} is now ${wait} min!`);
-
-            toast(`Ride now! ${ride.name} is now ${wait} minutes!`);
+            toast(`Ride now! ${ride.name} is ${wait} minutes!`);
 
             setNotified((prev) => ({
               ...prev,

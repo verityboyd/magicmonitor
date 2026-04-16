@@ -1,4 +1,3 @@
-//use sonner bottom right shadcn component here
 "use client";
 import { Toaster } from "../ui/sonner";
 
