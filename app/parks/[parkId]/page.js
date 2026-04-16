@@ -1,6 +1,3 @@
-//individual parks pages with wait times for each land and sorting functionality
-//consider components needed here - card? each list iteration would Be a card? each land would Be a card? already made a favourite Button
-//put all components in a fixed width div
 "use client";
 import { useParams } from "next/navigation";
 import { useFetchParkData, useFetchDisneyParks } from "@/app/utils/queueTimes";
@@ -8,11 +5,15 @@ import Park from "@/app/components/features/Park";
 import Loading from "@/app/components/features/Loading";
 import { useUserAuth } from "@/app/contexts/AuthContext";
 import UnAuth from "@/app/components/features/UnAuth";
+import { useState } from "react";
 
 export default function Page() {
   const { parkId } = useParams();
   const { user } = useUserAuth();
   const id = Number(parkId);
+
+  const [sortOrder, setSortOrder] = useState("low");
+  const [filter, setFilter] = useState("all");
 
   const { parks } = useFetchDisneyParks();
 
@@ -32,12 +33,61 @@ export default function Page() {
       </div>
     );
 
+  const filteredLands = lands.map((land) => {
+    let rides = [...land.rides];
+    rides = rides.filter((ride) => {
+      if (filter === "open") return ride.isOpen;
+      if (filter === "closed") return !ride.isOpen;
+      return true;
+    });
+
+    rides.sort((a, b) => {
+      if (!a.isOpen && b.isOpen) return 1;
+      if (a.isOpen && !b.isOpen) return -1;
+      if (sortOrder === "low") return a.wait - b.wait;
+      if (sortOrder === "high") return b.wait - a.wait;
+      return 0;
+    });
+
+    return {
+      ...land,
+      rides,
+    };
+  });
+
   return (
     <div className="w-full flex justify-center">
       <div>
         <h1 className="text-3xl text-center font-bold pt-10">{parkName}</h1>
+        <div className="flex flex-row justify-center gap-8 pt-10">
+          <div className="flex items-center gap-2">
+            <div className="text-lg">Sort By:</div>
+            <select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+              className="border p-2 rounded-lg"
+            >
+              <option value="low">Wait: Low to High</option>
+              <option value="high">Wait: High to Low</option>
+            </select>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="text-lg">Filter By:</div>
+            <div>
+              <select
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                className="border p-2 rounded-lg"
+              >
+                <option value="all">All Rides</option>
+                <option value="open">Open Only</option>
+                <option value="closed">Closed Only</option>
+              </select>
+            </div>
+          </div>
+        </div>
 
-        <Park lands={lands} />
+        <Park lands={filteredLands} />
       </div>
     </div>
   );
