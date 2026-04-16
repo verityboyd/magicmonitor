@@ -2,8 +2,8 @@ import ParkImageCard from "../components/features/ParkImageCard";
 
 export default function Page() {
   return (
-    <div className="flex justify-center w-full">
-      <div className="grid grid-cols-4 gap-8 mx-auto p-8">
+    <div className="flex md:flex-row flex-col justify-center w-full">
+      <div className="grid md:grid-cols-4 grid-cols-1 gap-8 mx-auto p-8">
         <ParkImageCard
           parkId={6}
           imgUrl={"/assets/wdw.jpg"}

@@ -22,7 +22,7 @@ export default function SiteHeader() {
     router.push("/");
   }
   return (
-    <nav className="flex flex-row items-center justify-between py-5 text-lg border-b-2 border-[#C7B9FF] shadow-md">
+    <nav className="flex md:flex-row flex-col  items-center justify-between py-5 text-lg border-b-2 border-[#C7B9FF] shadow-md">
       <div className="flex flex-row items-center px-10">
         <Link href="/">
           <AnimatedGradientText className="font-bold text-2xl">

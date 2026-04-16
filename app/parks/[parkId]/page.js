@@ -60,7 +60,7 @@ export default function Page() {
       <div className="w-full max-w-xl lg:max-w-3xl px-4">
         <h1 className="text-3xl text-center font-bold pt-10">{parkName}</h1>
         <div className="flex flex-col md:flex-row justify-center gap-8 pt-15">
-          <div className="flex items-center gap-2">
+          <div className="flex justify-center items-center gap-2">
             <div className="text-lg">Sort By:</div>
             <select
               value={sortOrder}
@@ -71,7 +71,7 @@ export default function Page() {
               <option value="high">Wait: High to Low</option>
             </select>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center gap-2">
             <div className="text-lg">Filter By:</div>
             <div>
               <select
