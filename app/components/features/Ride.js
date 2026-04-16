@@ -1,6 +1,3 @@
-//? !isOpen return "Ride Closed" : {ride.wait}
-//li items?
-
 import FavouriteButton from "./FavouriteButton";
 
 export default function Ride({ ride }) {
