@@ -8,7 +8,7 @@ import {
 
 export default function Park({ lands }) {
   return (
-    <div className="w-200 p-10 mt-5">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-6">
       <Accordion type="multiple" className="w-full">
         {lands.map((land) => (
           <AccordionItem key={land.id} value={String(land.id)}>

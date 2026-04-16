@@ -57,9 +57,9 @@ export default function Page() {
 
   return (
     <div className="w-full flex justify-center">
-      <div>
+      <div className="w-full max-w-xl lg:max-w-3xl px-4">
         <h1 className="text-3xl text-center font-bold pt-10">{parkName}</h1>
-        <div className="flex flex-row justify-center gap-8 pt-15">
+        <div className="flex flex-col md:flex-row justify-center gap-8 pt-15">
           <div className="flex items-center gap-2">
             <div className="text-lg">Sort By:</div>
             <select

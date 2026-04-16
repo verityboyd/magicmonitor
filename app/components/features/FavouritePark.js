@@ -21,7 +21,7 @@ export default function FavouritePark({ park }) {
   if (!filteredLands.length) return null;
 
   return (
-    <div>
+    <div className="w-full max-w-4xl mx-auto">
       <h2 className="text-2xl text-center font-bold">{park.name}</h2>
       <Park lands={filteredLands} />
     </div>
