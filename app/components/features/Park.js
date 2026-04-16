@@ -14,8 +14,14 @@ export default function Park({ lands }) {
           <AccordionItem key={land.id} value={String(land.id)}>
             <AccordionTrigger className="text-xl">{land.name}</AccordionTrigger>
 
-            <AccordionContent>
-              <div className="space-y-1">
+            <AccordionContent
+              className="
+    overflow-visible 
+    data-[state=open]:animate-none 
+    data-[state=open]:overflow-visible
+  "
+            >
+              <div className="space-y-1 sm:md:pb-10">
                 {land.rides.map((ride) => (
                   <div key={ride.id} className="border rounded p-2 w-full">
                     <Ride ride={ride} />
