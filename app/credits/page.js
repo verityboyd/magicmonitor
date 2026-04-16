@@ -3,14 +3,14 @@ import PhotoCreditCard from "../components/features/PhotoCreditCard";
 
 export default function Page() {
   return (
-    <main>
+    <main className="flex flex-col justify-center w-full">
       <SparklesText className="text-5xl text-center pb-5 pt-10">
         Image Credits
       </SparklesText>
       <div className="text-center py-10">
         Thank you to these photographers for their images of the Disney Parks.
       </div>
-      <div className="grid grid-cols-4 gap-8 mx-auto p-8">
+      <div className="grid md:grid-cols-4 grid-cols-1 gap-8 mx-auto p-8">
         <PhotoCreditCard
           unsplashLink={"#"}
           imgUrl={"/assets/wdw.jpg"}
