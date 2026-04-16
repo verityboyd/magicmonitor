@@ -10,8 +10,8 @@ import {
 } from "../ui/dropdown-menu";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { SparklesText } from "../ui/sparkles-text";
 import { AnimatedGradientText } from "../ui/animated-gradient-text";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function SiteHeader() {
   const { user, logout } = useUserAuth();
@@ -75,6 +75,7 @@ export default function SiteHeader() {
             Log In{" "}
           </Button>
         )}
+        <ThemeToggle />
       </div>
     </nav>
   );
